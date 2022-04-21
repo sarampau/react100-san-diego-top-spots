@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 // import { Wrapper, Status } from '@googlemaps/react-wrapper';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
 import axios from 'axios';
+import TopSpots from './topspots';
 import GoogleMap from './googlemap';
-// import TopSpots from './topspots';
 
 // require('dotenv').config();
 
@@ -17,25 +16,23 @@ class App extends Component {
     };
   }
 
-  // componentWillMount() {
-  //   axios.get('https://origin-top-spots-api.herokuapp.com/api/topspots')
-  //     .then(res => res.data)
-  //     .then(topspots => this.setState({ topspots }));
-  // }
-
-  // const mapStyles = {
-  //   width: '100%',
-  //   height: '100%'
-  // };
+  componentWillMount() {
+    axios.get('https://origin-top-spots-api.herokuapp.com/api/topspots')
+      .then(res => res.data)
+      .then(topspots => this.setState({ topspots }));
+  }
 
   render() {
     return (
       <div className='container'>
-        
-        <div style={ { height: '100px', width: '100px' } }>
-        <GoogleMap />
+        <div className='jumbotron'>
+          <h1>San Diego Top Spots</h1>
+          <p>A list of the top 30 places to see in San Diego, California</p>
         </div>
-        {/* {
+        <div style={ { height: '100px', width: '100px' } }>
+          <GoogleMap />
+        </div>
+        {
           this.state.topspots.map(topspot => (
             <TopSpots
               key={ topspot.id }
@@ -44,7 +41,7 @@ class App extends Component {
               location={ topspot.location }
             />
           ))
-        } */}
+        }
       </div>
     );
   }
