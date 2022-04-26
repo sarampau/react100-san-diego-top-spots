@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
-// import { Wrapper, Status } from '@googlemaps/react-wrapper';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
 import axios from 'axios';
+import TopSpots from './topspots';
 import GoogleMap from './googlemap';
-// import TopSpots from './topspots';
-
-// require('dotenv').config();
-
-// const API_KEY = process.env.GOOGLE_MAPS_API_KEY;
 
 class App extends Component {
   constructor(props) {
@@ -17,34 +11,38 @@ class App extends Component {
     };
   }
 
-  // componentWillMount() {
-  //   axios.get('https://origin-top-spots-api.herokuapp.com/api/topspots')
-  //     .then(res => res.data)
-  //     .then(topspots => this.setState({ topspots }));
-  // }
-
-  // const mapStyles = {
-  //   width: '100%',
-  //   height: '100%'
-  // };
+  componentWillMount() {
+    axios.get('https://origin-top-spots-api.herokuapp.com/api/topspots')
+      .then(res => res.data)
+      .then(topspots => this.setState({ topspots }));
+  }
 
   render() {
     return (
       <div className='container'>
-        
-        <div style={ { height: '100px', width: '100px' } }>
-        <GoogleMap />
+        <div className='jumbotron'>
+          <h1>San Diego Top Spots</h1>
+          <p>A list of the top 30 places to see in San Diego, California</p>
         </div>
-        {/* {
-          this.state.topspots.map(topspot => (
-            <TopSpots
-              key={ topspot.id }
-              name={ topspot.name }
-              description={ topspot.description }
-              location={ topspot.location }
+        <div className='row'>
+          <div className='col-1'>
+            <GoogleMap
+              topspots={ this.state.topspots }
             />
-          ))
-        } */}
+          </div>
+          <div className='col-2'>
+            {
+              this.state.topspots.map(topspot => (
+                <TopSpots
+                  key={ topspot.id }
+                  name={ topspot.name }
+                  description={ topspot.description }
+                  location={ topspot.location }
+                />
+              ))
+            }
+          </div>
+        </div>
       </div>
     );
   }

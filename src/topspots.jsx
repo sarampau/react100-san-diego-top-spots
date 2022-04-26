@@ -14,7 +14,7 @@ const TopSpots = (props) => {
 TopSpots.propTypes = {
   name: React.PropTypes.string,
   description: React.PropTypes.string,
-  // location: React.PropTypes.arrayOf
+  location: React.PropTypes.arrayOf
 };
 
 export default TopSpots;

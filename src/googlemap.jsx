@@ -1,28 +1,39 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
-// require('dotenv').config();
-
-// const API_KEY = process.env.GOOGLE_MAPS_API_KEY;
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 const mapStyles = {
   width: '100%',
-  height: '100%'
+  height: '400px'
 };
 
-export class GoogleMap extends Component {
+class GoogleMap extends Component {
+  constructor(props) {
+    super(props);
+  }
   render() {
     return (
       <Map
         google={ this.props.google }
-        zoom={ 8 }
+        zoom={ 9 }
         style={ mapStyles }
-        initialCenter={ { lat: 47.44, lng: -122.176 } }
-      />
+        className='google-map'
+        initialCenter={ { lat: 32.81, lng: -117 } }
+      >
+        {
+          this.props.topspots.map((topspot, i) => {
+            return <Marker
+              key={i}
+              position={{lat: topspot.location[0], lng: topspot.location[1]}}
+            />
+          })
+        }
+      </Map>
     );
   }
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyB5Zegl8R9FKRZDn8czBgGuQlTbkjk3GTA'
+  apiKey: API_KEY
 })(GoogleMap);
