@@ -1,5 +1,41 @@
+@font-face {
+    font-family: 'Tomatoes';
+    src: url('/fonts/Tomatoes.eot'); /* IE9 Compat Modes */
+    src: url('/fonts/Tomatoes.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('/fonts/Tomatoes.woff2') format('woff2'), /* Super Modern Browsers */
+        url('/fonts/Tomatoes.woff') format('woff'), /* Pretty Modern Browsers */
+        url('/fonts/Tomatoes.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('/fonts/Tomatoes.svg#svgFontName') format('svg'); /* Legacy iOS */
+    font-weight: 400;
+    font-style: normal;
+
+}
+
 body {
-    
+    background-image: url('https://wallpaperaccess.com/full/2732930.jpg');
+    background-size: 100% 100%;
+}
+
+.header {
+    color: #1c4488;
+    text-align: center;
+}
+
+h1 {
+    font-family: 'Tomatoes', 'Bradley Hand';
+    font-size: 95px;
+    margin-top: 45px;
+    margin-bottom: 15px;
+    color: #cd3636;
+    line-height: 80px;
+}
+
+.header p {
+    text-align: center;
+    font-family: 'Gill Sans', san-serif;
+    color: #cd3636;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .row {
@@ -13,15 +49,38 @@ body {
     margin-right: 3%;
 }
 
-.col-2 {
-    height: 600px;
-    overflow: overlay;
-}
-
 .google-map {
     position: relative !important;
 }
 
 .google-map div:first-child {
     position: relative !important;
+}
+
+.col-2 {
+    height: 600px;
+    overflow: overlay;
+}
+
+.well {
+    color: #e6de51;
+    background-color: rgba(221, 83, 83, 0.42);
+    border: 1px solid;
+    border-color: #9e003a;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    margin-right: 2%;
+    padding-left: 3%;
+    padding-right: 2%;
+    box-shadow: 8px 8px 5px 1px rgb(0, 0, 0, 20%);
+}
+
+.well h2 {
+    font-family: 'Marker Felt', 'fantasy';
+    text-shadow: 4px 3px 5px #262626;
+}
+.well p {
+    font-family: 'Gill Sans', san-serif;
+    text-shadow: 4px 3px 5px #262626;
+    font-size: 17px;
 }

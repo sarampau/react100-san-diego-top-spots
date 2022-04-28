@@ -20,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className='container'>
-        <div className='jumbotron'>
+        <div className='header'>
           <h1>San Diego Top Spots</h1>
           <p>A list of the top 30 places to see in San Diego, California</p>
         </div>

@@ -4,7 +4,7 @@ const TopSpots = (props) => {
   const url = `https://maps.google.com/?q=${props.location[0]},${props.location[1]}`;
   return (
     <div className='well'>
-      <h4>{props.name}</h4>
+      <h2>{props.name}</h2>
       <p>{props.description}</p>
       <a href={ url }>Google Link</a>
     </div>
